@@ -21,7 +21,9 @@ class ItemsBody extends Component {
                 loading: false,
                 todos: response.data
             });
-        })
+        }).catch(error => {
+            console.log(error,'Promise error');
+        });
     }
     
     renderToDos() {

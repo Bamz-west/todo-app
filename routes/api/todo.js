@@ -8,6 +8,7 @@ router.get('/', function(req, res) {
     db.select().from('todo').orderBy('id').then(function(data) {
         res.send(data);
     });
+    // res.send("its working");
 });
 
 router.post('/', function(req, res) {

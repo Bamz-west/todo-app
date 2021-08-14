@@ -37,7 +37,9 @@ class EditTodo extends Component {
             }).then(() => {
                 this.props.updateState(title, isDone === 'true');
                 this.props.toggleEdit();
-            })
+            }).catch(() => {
+                console.log('Promise error');
+            });
         } else {
             // Not editing
             Axios.post('/api/todo', {
@@ -45,6 +47,8 @@ class EditTodo extends Component {
                 is_done: isDone === 'true'
             }).then(() => {
                 history.push('/');
+            }).catch(() => {
+                console.log('Promise error');
             });
         }
     }

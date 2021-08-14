@@ -12,13 +12,15 @@ class SingleItem extends Component {
         }
     }
 
-    componentWillMount() {
+    async componentWillMount() {
         const id = this.props.match.params.id;
         Axios.get(`/api/todo/${id}`).then((res) => {
             this.setState({
                 loading: false,
                 todo: res.data
             })
+        }).catch(() => {
+            console.log('Promise error');
         });
     }
 
